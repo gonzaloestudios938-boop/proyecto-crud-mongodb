@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore | Tienda de Tecnología</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tech<span>Store</span></h1>
+
+    <div class="header-derecha">
+      <!-- Recuerdo: el botón del carrito solo lo ven los visitantes, el admin no -->
+      <button id="boton-carrito" class="boton-carrito oculto">
+        Carrito <span id="contador-carrito" class="contador">0</span>
+      </button>
+      <div id="zona-sesion"></div>
+    </div>
+  </header>
+
+  <!-- Recuerdo: el banner lo ven solo los visitantes, el admin no -->
+  <section id="hero" class="hero">
+    <h2>Tecnología al mejor precio</h2>
+    <p>Notebooks, auriculares, gaming y mucho más, en un solo lugar.</p>
+    <a href="#catalogo" class="boton-hero">Ver productos</a>
+  </section>
+
+  <main>
+    <!-- Formulario de login: se muestra solo si no hay sesión -->
+    <section id="seccion-login" class="caja oculto">
+      <h2>Iniciar sesión</h2>
+      <form id="form-login">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+      </form>
+      <p id="mensaje-login" class="mensaje"></p>
+    </section>
+
+    <!-- Todo lo que está dentro de este bloque solo se ve con sesión iniciada -->
+    <div id="panel-admin" class="oculto">
+
+      <section class="caja">
+        <h2>Nueva categoría</h2>
+        <form id="form-categoria">
+          <input type="text" id="cat-nombre" placeholder="Nombre" required>
+          <input type="text" id="cat-descripcion" placeholder="Descripción">
+          <button type="submit">Crear categoría</button>
+        </form>
+        <p id="mensaje-categoria" class="mensaje"></p>
+      </section>
+
+      <section class="caja">
+        <h2 id="titulo-form-producto">Nuevo producto</h2>
+        <form id="form-producto">
+          <input type="text" id="prod-nombre" placeholder="Nombre" required>
+          <input type="text" id="prod-descripcion" placeholder="Descripción">
+          <input type="url" id="prod-imagen" placeholder="Link de la imagen (opcional)">
+          <input type="number" id="prod-precio" placeholder="Precio" min="0" required>
+          <input type="number" id="prod-stock" placeholder="Stock" min="0" required>
+          <select id="prod-categoria" required></select>
+          <button type="submit" id="boton-guardar">Crear producto</button>
+          <button type="button" id="boton-cancelar" class="secundario oculto">Cancelar edición</button>
+        </form>
+        <p id="mensaje-producto" class="mensaje"></p>
+      </section>
+
+    </div>
+
+    <!-- Catálogo: filtros por categoría y productos -->
+    <section id="catalogo">
+      <h2 class="titulo-catalogo">Nuestros productos</h2>
+      <div id="filtros" class="filtros"></div>
+      <div id="productos"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>TechStore · Trabajo Práctico Final · Backend Developer</p>
+  </footer>
+
+  <!-- Carrito: fondo oscuro y panel que se desliza desde la derecha -->
+  <div id="overlay-carrito" class="overlay oculto"></div>
+  <aside id="panel-carrito" class="panel-carrito">
+    <div class="panel-carrito-cabecera">
+      <h2>Tu carrito</h2>
+      <button id="cerrar-carrito" class="secundario">Cerrar</button>
+    </div>
+
+    <div id="lista-carrito" class="lista-carrito"></div>
+
+    <div class="panel-carrito-pie">
+      <p class="total-carrito">Total: <span id="total-carrito">$ 0</span></p>
+      <div class="acciones-carrito">
+        <button id="boton-finalizar">Finalizar compra</button>
+        <button id="boton-vaciar" class="secundario">Vaciar carrito</button>
+      </div>
+      <p id="mensaje-carrito" class="mensaje"></p>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
