@@ -63,7 +63,7 @@ proyecto-crud-mongodb/
 
 1. Clonar el repositorio:
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/gonzaloestudios938-boop/proyecto-crud-mongodb.git
 cd proyecto-crud-mongodb
 ```
 2. Instalar dependencias:
